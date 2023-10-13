@@ -4,7 +4,7 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ mxczkevm/mxc-graph",
+    "deploy": "graph deploy mxczkevm/mxc-graph --ipfs http://45.63.52.231:5001 --node http://45.63.52.231:8020",
     "create-local": "graph create --node http://localhost:8020/ mxczkevm/mxc-graph",
     "remove-local": "graph remove --node http://localhost:8020/ mxczkevm/mxc-graph",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 mxczkevm/mxc-graph",

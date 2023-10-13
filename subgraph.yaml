@@ -14,23 +14,23 @@ dataSources:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - AddressManagerChanged
+#        - AddressManagerChanged
         - Anchored
-        - CrossChainSynced
-        - Initialized
-        - OwnershipTransferred
+#        - CrossChainSynced
+#        - Initialized
+#        - OwnershipTransferred
       abis:
         - name: MXCL2
           file: ./abis/MXCL2.json
       eventHandlers:
-        - event: AddressManagerChanged(address)
-          handler: handleAddressManagerChanged
+#        - event: AddressManagerChanged(address)
+#          handler: handleAddressManagerChanged
         - event: Anchored(uint64,uint64,uint64,uint64,bytes32,uint256,address,uint32)
           handler: handleAnchored
-        - event: CrossChainSynced(indexed uint256,bytes32,bytes32)
-          handler: handleCrossChainSynced
-        - event: Initialized(uint8)
-          handler: handleInitialized
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
+#        - event: CrossChainSynced(indexed uint256,bytes32,bytes32)
+#          handler: handleCrossChainSynced
+#        - event: Initialized(uint8)
+#          handler: handleInitialized
+#        - event: OwnershipTransferred(indexed address,indexed address)
+#          handler: handleOwnershipTransferred
       file: ./src/mxcl-2.ts

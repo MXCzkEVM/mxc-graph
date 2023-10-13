@@ -3,3 +3,8 @@ type MXCDayData @entity {
   date: Int! #timestamp
   burn: BigDecimal! # baseFee * gasUsed
 }
+
+type Bundle @entity {
+   id: ID!
+   burn: BigDecimal!
+}

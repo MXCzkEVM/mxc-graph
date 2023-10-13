@@ -76,3 +76,56 @@ export class MXCDayData extends Entity {
     this.set("burn", Value.fromBigDecimal(value));
   }
 }
+
+export class Bundle extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save Bundle entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type Bundle must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("Bundle", id.toString(), this);
+    }
+  }
+
+  static loadInBlock(id: string): Bundle | null {
+    return changetype<Bundle | null>(store.get_in_block("Bundle", id));
+  }
+
+  static load(id: string): Bundle | null {
+    return changetype<Bundle | null>(store.get("Bundle", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get burn(): BigDecimal {
+    let value = this.get("burn");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBigDecimal();
+    }
+  }
+
+  set burn(value: BigDecimal) {
+    this.set("burn", Value.fromBigDecimal(value));
+  }
+}
